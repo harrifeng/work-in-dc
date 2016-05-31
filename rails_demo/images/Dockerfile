@@ -2,12 +2,10 @@
 
 FROM ruby:2.2.0
 
-ENV http_proxy http://proxy.sin.sap.corp:8080
-ENV https_proxy http://proxy.sin.sap.corp:8080
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev openssh-server
 
 RUN mkdir /var/run/sshd
-RUN echo 'root:screencast' | chpasswd
+RUN echo 'root:root' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
