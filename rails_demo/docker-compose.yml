@@ -13,6 +13,7 @@ services:
       - rd_code:/myapp
       - root:/root
     ports:
+      - "2222:22"
       - "3000:3000"
     depends_on:
       - db
