@@ -6,6 +6,8 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - ms_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
   web:
     image: hfeng/mysql_study
     command: /usr/sbin/sshd -D
