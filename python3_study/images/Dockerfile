@@ -1,10 +1,6 @@
 # image name: hfeng/python3_study
 FROM ubuntu:16.04
 
-ENV http_proxy http://proxy.sin.sap.corp:8080
-ENV https_proxy http://proxy.sin.sap.corp:8080
-
-
 RUN apt-get update && \
 DEBIAN_FRONTEND=noninteractive apt-get -y install \
 silversearcher-ag \
