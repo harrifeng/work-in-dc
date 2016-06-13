@@ -1,0 +1,23 @@
+version: '2'
+services:
+  tc1:
+    image: tomcat:7
+    ports:
+      - "8081:8080"
+    volumes:
+      - tc1_data:/usr/local/tomcat
+  tc2:
+    image: tomcat:7
+    ports:
+      - "8082:8080"
+    volumes:
+      - tc1_data:/usr/local/tomcat
+  tc3:
+    image: tomcat:7
+    ports:
+      - "8083:8080"
+    volumes:
+      - tc1_data:/usr/local/tomcat
+volumes:
+  tc1_data:
+    external: true
