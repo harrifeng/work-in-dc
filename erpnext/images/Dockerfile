@@ -14,9 +14,12 @@ curl \
 python-pip \
 mysql-client \
 openssh-server \
+net-tools \
+iputils-ping \
 python-dev
 
 RUN useradd -s /bin/bash -m hfeng
+RUN usermod -aG sudo hfeng
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
 RUN echo 'hfeng:hfeng' | chpasswd
