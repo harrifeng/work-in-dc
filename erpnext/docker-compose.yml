@@ -1,13 +1,13 @@
 version: '2'
 services:
   web:
-    image: harrifeng/erpnext:16.04
+    image: harrifeng/erpnext:15.10
     command: /usr/sbin/sshd -D
     volumes:
       - root:/root
       - hfeng:/home/hfeng
     ports:
-      - "3222:22"
+      - "2220:22"
 volumes:
   root:
     external: true

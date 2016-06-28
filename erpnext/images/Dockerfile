@@ -1,7 +1,5 @@
 # image name: harrifeng/erpnext:16.04
-FROM ubuntu:16.04
-# ENV http_proxy http://10.0.75.1:7777
-# ENV https_proxy http://10.0.75.1:7777
+FROM ubuntu:15.10
 
 RUN apt-get update && \
 DEBIAN_FRONTEND=noninteractive apt-get -y install \
@@ -23,7 +21,7 @@ RUN usermod -aG sudo hfeng
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
 RUN echo 'hfeng:hfeng' | chpasswd
-RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
