@@ -1,15 +1,5 @@
 version: '2'
 services:
   web:
-    image: harrifeng/erpnext:15.10
-    command: /usr/sbin/sshd -D
-    volumes:
-      - root:/root
-      - hfeng:/home/hfeng
-    ports:
-      - "2220:22"
-volumes:
-  root:
-    external: true
-  hfeng:
-    external: true
+    build: .
+    command: bench start
