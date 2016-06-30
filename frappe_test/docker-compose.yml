@@ -7,7 +7,13 @@ services:
     volumes:
       - ./custom:/etc/mysql/conf.d
   web:
-    build: .
+    user: travis
+    working_dir: /home/travis
+    image: harrifeng/frappe_test:dev
+    volumes:
+      - ./frappe_sj:/home/travis/frappe_sj
+      - ./custom:/home/travis/custom
+    command: /home/travis/custom/prepare.sh
     depends_on:
       - db
     
