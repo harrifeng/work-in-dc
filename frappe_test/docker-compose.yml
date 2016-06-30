@@ -9,7 +9,7 @@ services:
   web:
     user: travis
     working_dir: /home/travis
-    image: harrifeng/frappe_test:dev
+    image: harrifeng/setup_frappe:finish
     volumes:
       - ./frappe_sj:/home/travis/frappe_sj
       - ./custom:/home/travis/custom
