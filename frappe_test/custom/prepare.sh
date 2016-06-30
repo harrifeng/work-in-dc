@@ -6,4 +6,6 @@ bench use test_site
 bench build
 bench set-mariadb-host db
 bench reinstall
-bench start
+bench start&
+sleep 10
+bench --verbose run-tests --driver Firefox
