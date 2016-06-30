@@ -10,6 +10,10 @@ services:
     user: travis
     working_dir: /home/travis
     image: harrifeng/frappe_test:dev
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+      - "8001:8001"
     volumes:
       - ./frappe_sj:/home/travis/frappe_sj
       - ./custom:/home/travis/custom
