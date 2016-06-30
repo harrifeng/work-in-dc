@@ -3,7 +3,7 @@ services:
   db:
     image: harrifeng/mariadb:10.1-frappe
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes      
     volumes:
       - ./custom:/etc/mysql/conf.d
   web:
