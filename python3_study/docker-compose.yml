@@ -4,10 +4,10 @@ services:
     image: mysql:5.6
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    # volumes:
-    #   - ps_data:/var/lib/mysql
+    volumes:
+      - ps_data:/var/lib/mysql
   web:
-    image: hfeng/python3_study
+    image: harrifeng/python3_study
     command: /usr/sbin/sshd -D
     volumes:
       - ps_code:/mycode
@@ -19,8 +19,8 @@ services:
     environment:
       - DB_HOST=db
 volumes:
-  # ps_data:
-  #   external: true
+  ps_data:
+    external: true
   ps_code:
     external: true
   root:

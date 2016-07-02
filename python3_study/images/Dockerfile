@@ -1,4 +1,4 @@
-# image name: hfeng/python3_study
+# image name: harrifeng/python3_study
 FROM ubuntu:16.04
 
 RUN apt-get update && \
