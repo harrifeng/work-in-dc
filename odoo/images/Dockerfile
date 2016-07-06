@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-RUN apt-get update && apt-get install sudo git
+RUN apt-get update && apt-get -y install sudo git
 RUN useradd -m -g sudo -s /bin/bash oddo
 RUN echo 'tester:tester' | chpasswd
 USER tester
