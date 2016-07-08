@@ -5,7 +5,7 @@ services:
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - rd_data:/var/lib/mysql
+      - rw_data:/var/lib/mysql
   web:
     image: harrifeng/rails_work
     command: /usr/sbin/sshd -D
@@ -19,7 +19,7 @@ services:
     environment:
       - DB_HOST=db
 volumes:
-  rd_data:
+  rw_data:
     external: true
   root:
     external: true

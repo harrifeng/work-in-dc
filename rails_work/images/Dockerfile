@@ -2,6 +2,9 @@
 
 FROM ruby:2.2.0
 
+ENV http_proxy http://10.0.75.1:7777
+ENV https_proxy http://10.0.75.1:7777
+
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev openssh-server
 
 RUN mkdir /var/run/sshd
