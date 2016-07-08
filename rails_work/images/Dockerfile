@@ -18,4 +18,7 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
+
+# added later
+RUN apt-get install -y emacs, postgresql-client, mysql-client
 CMD ["/usr/sbin/sshd", "-D"]

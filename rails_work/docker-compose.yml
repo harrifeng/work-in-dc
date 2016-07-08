@@ -5,7 +5,14 @@ services:
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - rw_data:/var/lib/mysql
+      - rw_mysql:/var/lib/mysql
+  db2:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_PASSWORD=shine
+      - POSTGRES_USER=shine
+    volumes:
+      - rw_psql:/var/lib/postgresql/data
   web:
     image: harrifeng/rails_work
     command: /usr/sbin/sshd -D
@@ -15,11 +22,14 @@ services:
       - "2222:22"
       - "3000:3000"
     depends_on:
-      - db
+      - db2
     environment:
       - DB_HOST=db
+      - DB_HOST2=db2
 volumes:
-  rw_data:
+  rw_mysql:
+    external: true
+  rw_psql:
     external: true
   root:
     external: true
