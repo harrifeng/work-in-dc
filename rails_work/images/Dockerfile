@@ -13,7 +13,7 @@ libpq-dev \
 openssh-server \
 emacs \
 postgresql-client \
-mysql-client\
+mysql-client \
 net-tools \
 python-dev \
 
