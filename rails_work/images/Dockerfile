@@ -15,7 +15,7 @@ emacs \
 postgresql-client \
 mysql-client \
 net-tools \
-python-dev \
+python-dev 
 
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
