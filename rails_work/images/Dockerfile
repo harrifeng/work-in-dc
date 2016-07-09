@@ -11,7 +11,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
 build-essential \
 libpq-dev \
 openssh-server \
-emacs\
+emacs \
 postgresql-client \
 mysql-client\
 net-tools \
