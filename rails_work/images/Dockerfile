@@ -17,6 +17,12 @@ mysql-client \
 net-tools \
 python-dev 
 
+
+# For nodejs
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install -g bower
+
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
@@ -27,10 +33,9 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
-EXPOSE 22
+RUN useradd -s /bin/bash -g sudo -m hfeng
+RUN echo 'hfeng:hfeng'| chpasswd
 
-# For nodejs
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
-RUN apt-get install -y nodejs
+EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-D"]
