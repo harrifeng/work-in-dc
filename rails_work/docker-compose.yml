@@ -14,10 +14,10 @@ services:
     volumes:
       - rw_psql:/var/lib/postgresql/data
   web:
-    image: harrifeng/rails_work
+    image: harrifeng/rails_work:hfeng
     command: /usr/sbin/sshd -D
     volumes:
-      - root:/root
+      - hfeng:/home/hfeng
     ports:
       - "2222:22"
       - "3000:3000"
@@ -31,5 +31,5 @@ volumes:
     external: true
   rw_psql:
     external: true
-  root:
+  hfeng:
     external: true

@@ -15,6 +15,8 @@ emacs \
 postgresql-client \
 mysql-client \
 net-tools \
+sudo \
+silversearcher-ag \
 python-dev 
 
 
