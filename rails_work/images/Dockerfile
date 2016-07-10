@@ -23,7 +23,7 @@ python-dev
 # For nodejs
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get install -y nodejs
-RUN npm install -g bower
+RUN npm install -g bower js-beautify webpack tern
 
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
