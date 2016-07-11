@@ -15,6 +15,7 @@ python-pip \
 python3-dev \
 mysql-client \
 mysql-server \
+libmysqlclient-dev \
 openssh-server
 
 RUN pip install virtualenv
