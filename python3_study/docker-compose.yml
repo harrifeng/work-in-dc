@@ -14,6 +14,9 @@ services:
       - root:/root
     ports:
       - "2224:22"
+      - "17000:7000"
+      - "18000:8000"
+      - "19000:9000"
     depends_on:
       - db
     environment:

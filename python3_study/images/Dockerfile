@@ -10,11 +10,18 @@ git \
 curl \
 python3 \
 python3-pip \
+python \
+python-pip \
 python3-dev \
 mysql-client \
+mysql-server \
 openssh-server
 
-RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN pip install virtualenv
+RUN mkdir -p /root/virtualpy
+WORKDIR /root/virtualpy
+RUN virtualenv -p /usr/bin/python3 py3env
+RUN virtualenv -p /usr/bin/python py2env
 
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
