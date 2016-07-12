@@ -3,20 +3,20 @@ services:
   db:
     image: mysql:5.6
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ps_data:/var/lib/mysql
   web:
-    image: harrifeng/python3_study
+    image: harrifeng/python3_study:root
     command: /usr/sbin/sshd -D
     volumes:
       - ps_code:/mycode
       - root:/root
     ports:
       - "2224:22"
-      - "17000:7000"
-      - "18000:8000"
-      - "19000:9000"
+      - "7000:7000"
+      - "8000:8000"
+      - "9000:9000"
     depends_on:
       - db
     environment:
