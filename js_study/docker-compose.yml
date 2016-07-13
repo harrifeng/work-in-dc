@@ -7,13 +7,16 @@ services:
     volumes:
       - js_data:/var/lib/mysql
   web:
+    hostname: jsstudy
     image: harrifeng/js_study:root
     command: /usr/sbin/sshd -D
     volumes:
       - root:/root
     ports:
       - "2225:22"
-      - "6000:6000"
+      - "5000:8000"
+      - "5080:8080"
+      - "5200:4200"
     depends_on:
       - db
     environment:
