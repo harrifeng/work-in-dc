@@ -25,6 +25,7 @@ RUN npm install -g js-beautify webpack tern
 RUN pip install rope flake8 importmagic autopep8 yapf powerline-status psutil
 
 # For golang setting
+ENV GOPATH /root/go
 RUN go get -u -v github.com/nsf/gocode \
 github.com/golang/lint/golint \
 github.com/lukehoban/go-find-references \
