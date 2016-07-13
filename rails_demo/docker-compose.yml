@@ -7,10 +7,9 @@ services:
     volumes:
       - rd_data:/var/lib/mysql
   web:
-    image: hfeng/rails_demo
+    image: harrifeng/rails_demo:root
     command: /usr/sbin/sshd -D
     volumes:
-      - rd_code:/myapp
       - root:/root
     ports:
       - "2222:22"
@@ -21,8 +20,6 @@ services:
       - DB_HOST=db
 volumes:
   rd_data:
-    external: true
-  rd_code:
     external: true
   root:
     external: true

@@ -1,4 +1,4 @@
-# image name: hfeng/rails_demo
+# image name: harrifeng/rails_demo:root
 
 FROM ruby:2.2.0
 
