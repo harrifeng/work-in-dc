@@ -18,7 +18,7 @@ openssh-server
 
 # For nodejs
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
-DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
 RUN npm install -g js-beautify webpack tern
 
 # For emacs python
