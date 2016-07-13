@@ -26,16 +26,17 @@ RUN pip install rope flake8 importmagic autopep8 yapf powerline-status psutil
 
 # For golang setting
 ENV GOPATH /root/go
-RUN go get -u -v github.com/nsf/gocode \
-github.com/golang/lint/golint \
-github.com/lukehoban/go-find-references \
-github.com/lukehoban/go-outline \
-sourcegraph.com/sqs/goreturns \
-golang.org/x/tools/cmd/gorename \
-github.com/tpng/gopkgs \
-github.com/newhook/go-symbols \
-github.com/rogpeppe/godef \
-golang.org/x/tools/cmd/goimports
+
+RUN go get -u -v github.com/nsf/gocode
+RUN go get -u -v github.com/rogpeppe/godef
+RUN go get -u -v github.com/golang/lint/golint
+RUN go get -u -v github.com/lukehoban/go-outline
+RUN go get -u -v sourcegraph.com/sqs/goreturns
+RUN go get -u -v golang.org/x/tools/cmd/gorename
+RUN go get -u -v github.com/tpng/gopkgs
+RUN go get -u -v github.com/newhook/go-symbols
+RUN go get -u -v golang.org/x/tools/cmd/guru
+RUN go get -u -v github.com/godoctor/godoctor
 
 # For sshd
 RUN mkdir /var/run/sshd
