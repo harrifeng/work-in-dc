@@ -37,6 +37,7 @@ RUN go get -u -v github.com/tpng/gopkgs
 RUN go get -u -v github.com/newhook/go-symbols
 RUN go get -u -v golang.org/x/tools/cmd/guru
 RUN go get -u -v github.com/godoctor/godoctor
+RUN go get -u -v golang.org/x/tools/cmd/goimports
 
 # For sshd
 RUN mkdir /var/run/sshd
