@@ -7,6 +7,7 @@ services:
     volumes:
       - ps_data:/var/lib/mysql
   web:
+    hostname: py3study
     image: harrifeng/python3_study:root
     command: /usr/sbin/sshd -D
     volumes:
