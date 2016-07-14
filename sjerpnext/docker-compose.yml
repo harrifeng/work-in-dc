@@ -1,0 +1,21 @@
+version: '2'
+services:
+  db:
+    image: mariadb:10.1
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./custom:/etc/mysql/conf.d
+  web:
+    hostname: sjerpnext
+    command: /usr/sbin/sshd -D
+    image: harrifeng/sjerpnext:hfeng
+    volumes:
+      - hfeng:/home/hfeng
+    ports:
+      - "2226:22"
+    depends_on:
+      - db
+volumes:
+  hfeng:
+    external: true
