@@ -9,7 +9,7 @@ services:
   web:
     hostname: sjerpnext
     command: /usr/sbin/sshd -D
-    image: harrifeng/sjerpnext:shanghai
+    image: harrifeng/sjerpnext:hfeng
     volumes:
       - hfeng:/home/hfeng
     ports:
