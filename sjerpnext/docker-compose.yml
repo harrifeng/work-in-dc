@@ -1,6 +1,12 @@
 version: '2'
 services:
-  db:
+  mariadb:
+    image: mariadb:10.0
+    environment:
+      MYSQL_ROOT_PASSWORD=mypass
+    depends_on:
+      mongodb
+  mongodb:
     image: tutum/mongodb
     environment:
       - MONGODB_USER=root
@@ -9,14 +15,14 @@ services:
   web:
     hostname: sjerpnext
     command: /usr/sbin/sshd -D
-    image: harrifeng/sjerpnext:hfeng
+    image: harrifeng/sjerpnext:sshd
     volumes:
       - hfeng:/home/hfeng
     ports:
       - "2226:22"
       - "8006:8000"
     depends_on:
-      - db
+      - mariadb
 volumes:
   hfeng:
     external: true
