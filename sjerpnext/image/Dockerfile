@@ -10,7 +10,7 @@ curl \
 openssh-server
 
 # Nodejs
-bash -c "curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -"
+RUN curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 
 RUN apt-get update && \
 DEBIAN_FRONTEND=noninteractive apt-get -y install \
@@ -24,7 +24,6 @@ vim \
 screen \
 htop \
 mariadb-common \
-libmysqlclient-dev
 libmariadbclient-dev \
 libxslt1.1 \
 libxslt1-dev \
