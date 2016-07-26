@@ -52,7 +52,7 @@ WORKDIR /home/frappe
 
 RUN git clone https://github.com/frappe/bench --branch master bench-repo
 RUN sudo pip install --upgrade pip
-RUN sudo pip install -e /tmp/bench-repo
+RUN sudo pip install -e /home/frappe/bench-repo
 
 RUN bench init frappe-bench --frappe-branch develop --apps_path \
 https://raw.githubusercontent.com/frappe/bench/master/install_scripts/erpnext-apps.json
