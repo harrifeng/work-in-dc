@@ -39,8 +39,7 @@ libxrender1 \
 libxext6 \
 xfonts-75dpi \
 xfonts-base \
-libffi-dev
-# mariadb-server \
+libffi-dev \
 nodejs
 
 RUN useradd -s /bin/bash -m frappe
