@@ -1,17 +1,19 @@
 version: '2'
 services:
-  mariadb:
-    image: mariadb:10.0
-    environment:
-      MYSQL_ROOT_PASSWORD=mypass
-    depends_on:
-      mongodb
   mongodb:
     image: tutum/mongodb
     environment:
       - MONGODB_USER=root
       - MONGODB_DATABASE=dmall
       - MONGODB_PASS=mypass
+  mariadb:
+    image: mariadb:10.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=mypass
+    volumes:
+      - ./custom:/etc/mysql/conf.d
+    depends_on:
+      - mongodb
   web:
     hostname: sjerpnext
     command: /usr/sbin/sshd -D
