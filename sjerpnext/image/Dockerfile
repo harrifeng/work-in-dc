@@ -42,18 +42,18 @@ xfonts-base \
 libffi-dev \
 nodejs
 
-WORKDIR /tmp
-RUN git clone https://github.com/frappe/bench --branch master bench-repo
-RUN pip install --upgrade pip
-RUN pip install -e /tmp/bench-repo
-RUN rm -rf /tmp/bench-repo
-
 RUN useradd -s /bin/bash -m frappe
 RUN usermod -aG sudo frappe
 RUN echo 'frappe:frappe' | chpasswd
+RUN echo 'frappe ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER frappe
 WORKDIR /home/frappe
+
+RUN git clone https://github.com/frappe/bench --branch master bench-repo
+RUN sudo pip install --upgrade pip
+RUN sudo pip install -e /tmp/bench-repo
+
 RUN bench init frappe-bench --frappe-branch develop --apps_path \
 https://raw.githubusercontent.com/frappe/bench/master/install_scripts/erpnext-apps.json
 
