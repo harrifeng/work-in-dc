@@ -1,11 +1,21 @@
 version: '2'
 services:
+  mongodb:
+    image: tutum/mongodb
+    environment:
+      - MONGODB_USER=root
+      - MONGODB_DATABASE=dmall
+      - MONGODB_PASS=mypass
+    volumes:
+      - cos_data:/data/db
   db:
     image: mysql:5.6
     environment:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - ps_data:/var/lib/mysql
+      - cos_data:/var/lib/mysql
+    depends_on:
+      - mongodb
   web:
     hostname: py3study
     image: harrifeng/cos:root
@@ -23,7 +33,7 @@ services:
     environment:
       - DB_HOST=db
 volumes:
-  ps_data:
+  cos_data:
     external: true
   root:
     external: true
