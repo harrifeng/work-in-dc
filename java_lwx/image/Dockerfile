@@ -45,8 +45,8 @@ RUN go get -u -v golang.org/x/tools/cmd/goimports
 # For sshd
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
+RUN useradd -m -g sudo -s /bin/bash lwx
 RUN echo 'lwx:lwx' | chpasswd
-RUN usermod -aG sudo lwx
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login

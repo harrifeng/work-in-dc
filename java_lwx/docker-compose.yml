@@ -1,0 +1,18 @@
+version: '2'
+services:
+  web:
+    hostname: java_lwx
+    image: harrifeng/lwx:16.04
+    command: /usr/sbin/sshd -D
+    volumes:
+      - lwx_data:/home/lwx
+    ports:
+      - "2222:22"
+      - "7000:7000"
+      - "8000:8000"
+      - "8080:8080"
+      - "8888:8888"
+      - "9000:9000"
+volumes:
+  lwx_data:
+    external: true
