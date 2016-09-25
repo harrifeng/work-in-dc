@@ -1,4 +1,4 @@
-# image name: harrifeng/basic:16.04
+# image name: harrifeng/lwx:16.04
 FROM ubuntu:16.04
 
 RUN apt-get update && \
